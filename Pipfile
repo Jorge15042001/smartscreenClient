@@ -8,6 +8,7 @@ opencv-python = "*"
 mediapipe = "*"
 imutils = "*"
 websockets = "*"
+pyserial = "*"
 
 [dev-packages]
 
