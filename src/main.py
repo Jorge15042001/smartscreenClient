@@ -4,7 +4,7 @@ from SerialClient import SerialClient
 
 
 if __name__ == "__main__":
-    screen_id = 8
+    screen_id = 1
     socket_client = ScreenSocketClient(screen_id)
     serial_client = SerialClient("/dev/ttyACM0", 9200)
 
