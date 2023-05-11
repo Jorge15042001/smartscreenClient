@@ -14,7 +14,6 @@ class ScreenSocketClient:
         self.status_reported_thread = threading.Thread(
             target=self.status_reporter)
         self.keep_loop = True
-
     def status_reporter(self):
         while self.keep_loop:
             json_str = json.dumps({
