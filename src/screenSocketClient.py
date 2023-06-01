@@ -3,7 +3,8 @@ from websockets.sync.client import connect
 import threading
 from time import sleep
 import json
-
+#import ssl
+#ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
 
 class ScreenSocketClient:
     def __init__(self, screen_id):

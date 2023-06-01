@@ -6,20 +6,25 @@ from SerialClient import SerialClient
 if __name__ == "__main__":
     screen_id = 1
     socket_client = ScreenSocketClient(screen_id)
-    serial_client = SerialClient("/dev/ttyACM0", 9200)
+    serial_client = SerialClient("COM3", 115200)
 
+    print("starting socket client")
     socket_client.start()
 
     height_damemon = HeightDaemon("./config_files/stereo_config.json")
 
     def person_detected_callback(rel_height):
+        print("person detedted")
         socket_client.status = "Waiting"
         socket_client.alert_person_detected()
         serial_client.move(rel_height)
+        pass
 
     def person_leaves_callback():
+        print("person leaves")
         socket_client.status = "Active"
         socket_client.alert_person_leaves()
+        pass
 
     height_damemon.set_on_person_detected(person_detected_callback)
     height_damemon.set_on_person_leaves(person_leaves_callback)
