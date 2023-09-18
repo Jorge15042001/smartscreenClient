@@ -8,7 +8,8 @@ import json
 class ScreenSocketClient:
     def __init__(self, screen_id):
         self.screen_id = str(screen_id)
-        self.url = f"wss://smartscreen.jorgevulgarin.cc/ws/hardware_controller/{screen_id}/"
+        self.url = f"ws://200.10.147.205:8001/ws/hardware_controller/{screen_id}/"
+#        self.url = f"wss://smartscreen.jorgevulgarin.cc/ws/hardware_controller/{screen_id}/"
         self.status = "Active"
         self.ws_client = connect(self.url)
         self.status_reported_thread = threading.Thread(

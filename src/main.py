@@ -4,9 +4,9 @@ from SerialClient import SerialClient
 
 
 if __name__ == "__main__":
-    screen_id = 1
+    screen_id = 2
     socket_client = ScreenSocketClient(screen_id)
-    serial_client = SerialClient("/dev/ttyACM0", 9200)
+    serial_client = SerialClient("/dev/ttyACM0", 115200)
 
     socket_client.start()
 
@@ -24,7 +24,9 @@ if __name__ == "__main__":
     height_damemon.set_on_person_detected(person_detected_callback)
     height_damemon.set_on_person_leaves(person_leaves_callback)
 
+    print("height daemon starting")
     height_damemon.start()
+    print("height daemon started")
     exit_main_loop = False
     while not exit_main_loop and height_damemon.keep_loop:
         print(not exit_main_loop and height_damemon.keep_loop)
