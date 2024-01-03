@@ -11,6 +11,7 @@ class SerialClient:
 
     def move(self, rel_height: int):
         def run_movement():
+            print("moving motors")
             self.channel.write(
                 f"x:0;y:0;z:{rel_height};R:0;P:0;Y:0;".encode("utf-8"))
             final_height = self.channel.readline()
