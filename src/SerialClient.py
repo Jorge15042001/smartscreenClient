@@ -15,6 +15,7 @@ class SerialClient:
 
     def move(self, rel_height: int):
         rel_height = round(rel_height * 10)
+
         def run_movement():
             self.channel.write(
                 f"x:0,y:0,z:{rel_height + self.height};R:0,P:0,Y:0".encode("utf-8"))

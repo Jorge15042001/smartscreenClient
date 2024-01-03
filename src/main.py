@@ -12,6 +12,9 @@ if __name__ == "__main__":
 
     height_damemon = HeightDaemon("./config_files/stereo_config.json")
 
+    def person_seen_callback(rel_height):
+        serial_client.move(rel_height)
+
     def person_detected_callback(rel_height):
         socket_client.status = "Waiting"
         socket_client.alert_person_detected()
@@ -21,6 +24,7 @@ if __name__ == "__main__":
         socket_client.status = "Active"
         socket_client.alert_person_leaves()
 
+    height_damemon.set_on_person_seen(person_seen_callback)
     height_damemon.set_on_person_detected(person_detected_callback)
     height_damemon.set_on_person_leaves(person_leaves_callback)
 
