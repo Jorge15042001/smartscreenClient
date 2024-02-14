@@ -48,4 +48,4 @@ class ScreenSocketClient:
         })
         print(json_str)
         self.ws_client.send(json_str)
-
+    # TODO: aler_person_seen
